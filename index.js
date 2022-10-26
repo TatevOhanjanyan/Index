@@ -1,10 +1,11 @@
 var express = require("express");
 var app = express();
 
-app.use(express.static("Programming-3"));
+app.use(express.static("programing3"));
 
 app.get("/", function(req, res){
    res.redirect("index.html");
+   // res.send("hello");
 });
 
 app.listen(3000, function(){

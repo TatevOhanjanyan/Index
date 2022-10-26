@@ -83,6 +83,7 @@ function setup() {
             }
         }
     }
+
 }
 
 function draw() {
@@ -138,5 +139,8 @@ function draw() {
     }
     for (let i in RubbitArr) {
         RubbitArr[i].mulrub();
+    }
+    if(frameCount == 60){
+        console.log(frameCount);
     }
 }
