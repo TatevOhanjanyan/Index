@@ -5,6 +5,7 @@ class LivingCreature{
         this.life = 250;
         this.directions = [];
     }
+    
     getNewCoordinates() {
         this.directions = [
             [this.x - 1, this.y - 1],

@@ -1,3 +1,6 @@
+var socket = io();
+
+
 let matrix = [];
 let side = 25;
 let grassArr = [];
@@ -5,6 +8,7 @@ let grassEaterArr = [];
 let predatorArr = [];
 let hunterArr = [];
 let RubbitArr = [];
+
 function setup() {
     matrixGenerator(60, 150, 50, 10, 10, 1, 1);
     frameRate(20);
@@ -34,6 +38,17 @@ function setup() {
             }
         }
     }
+
+    // function handleMessage(msg){
+    //     var p = document.createElement('p');
+    //     p.innerText = msg;
+    //     chatDiv.appendChild(p)
+    //     input.value = "";
+    // }
+    // socket.on('display message ', handleMessage);
+    // 
+    
+    
     function matrixGenerator(matrixSize, grass, grassEater, Predator, Hunter, Rubbit) {
         for (let i = 0; i < matrixSize; i++) {
             matrix[i] = [];
@@ -143,4 +158,24 @@ function draw() {
     if(frameCount == 60){
         console.log(frameCount);
     }
+
+    if (frameCount % 60==0){
+        let grass = grassArr.length;
+        let grassEater = grassEaterArr.length;
+        let predator = predatorArr.length;
+        let hunter = hunterArr.length;
+        let rubbit = RubbitArr.length;
+        let statistic = {
+            grass,
+            grassEater,
+            predator,
+            hunter,
+            rubbit,
+            
+        }
+            socket.emit("send static", statistic);
+    
+    
+    }
 }
+
