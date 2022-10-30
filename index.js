@@ -19,7 +19,7 @@ server.listen(3000);
 io.on('connection', function (socket) {
    
    socket.on("send static", function (data) {
-      console.log(data);
+      // console.log(data);
       
        main(data);
 

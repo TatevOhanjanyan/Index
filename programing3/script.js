@@ -37,16 +37,8 @@ function setup() {
                 RubbitArr.push(rubbit);
             }
         }
+        
     }
-
-    // function handleMessage(msg){
-    //     var p = document.createElement('p');
-    //     p.innerText = msg;
-    //     chatDiv.appendChild(p)
-    //     input.value = "";
-    // }
-    // socket.on('display message ', handleMessage);
-    // 
     
     
     function matrixGenerator(matrixSize, grass, grassEater, Predator, Hunter, Rubbit) {
@@ -155,11 +147,11 @@ function draw() {
     for (let i in RubbitArr) {
         RubbitArr[i].mulrub();
     }
-    if(frameCount == 60){
-        console.log(frameCount);
-    }
+    // if(frameCount == 60){
+    //     console.log(frameCount);
+    // }
 
-    if (frameCount % 60==0){
+    if (frameCount % 60 == 0){
         let grass = grassArr.length;
         let grassEater = grassEaterArr.length;
         let predator = predatorArr.length;
@@ -174,8 +166,7 @@ function draw() {
             
         }
             socket.emit("send static", statistic);
-    
-    
     }
+    
 }
 
