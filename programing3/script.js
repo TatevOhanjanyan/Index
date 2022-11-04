@@ -1,6 +1,4 @@
 var socket = io();
-
-
 let matrix = [];
 let side = 25;
 let grassArr = [];
